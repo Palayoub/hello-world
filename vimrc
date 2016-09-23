@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+colorscheme blue
 "set backspace=2
 set backspace=indent,eol,start
 
@@ -19,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -34,18 +37,27 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"set shortmess="pal"
 
+"Ionic
+let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
 "Line number highlighted
-
+set incsearch
+"move lines fast
+nnoremap <S-Up> :+5
+nnoremap <S-Down> :-5
 "Map for NerdTree
 map <C-n> :NERDTreeToggle<CR>
-
+"Indent blank line
+inoremap <CR> <CR>x<BS>
 "Other Paramaters
 syntax on                   " switch syntax highlighting on
+set autoread 
 
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
 "Compile and run program
-nnoremap <C-M> :!go %:r && ./%:r<CR>
+nnoremap <c-p> :!clear && go %:r && ./%:r<CR>
+nnoremap <c-o> :!clear && javac %:r.java && java %:r<CR>
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
 highlight NonText ctermbg=none ctermfg=8

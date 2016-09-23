@@ -1,0 +1,6 @@
+colorscheme mc-like
+set number
+nnoremap w :view<cr>
+"Resizing panes
+nnoremap <c-j> <c-w>>
+nnoremap <c-k> <c-w>-
