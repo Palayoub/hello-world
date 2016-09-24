@@ -37,8 +37,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-"set shortmess="pal"
-
 "Ionic
 let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
 "Line number highlighted
@@ -65,6 +63,10 @@ highlight NonText ctermbg=none ctermfg=8
 " make comments and HTML attributes italic
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
+
+"Line highlighitng
+set cursorline
+highlight CursorLine  cterm=bold
 
 set number                  " show line numbers
 " set relativenumber          " show relative line numbers
