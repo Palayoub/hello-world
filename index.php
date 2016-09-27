@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>GITHUB</title>
+		<title>GITHUB 1</title>
 	</head>
 <body>
 		<h1> HELLO WORLD! </h1>
