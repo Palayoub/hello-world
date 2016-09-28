@@ -21,6 +21,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,13 +40,20 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+set path+=/usr/local/Cellar/gcc5/5.4.0/include/c++/5.4.0/**
+
+"TRYYYY
+"set clipboard=unnamedplus
+set clipboard+=unnamed
+"TRY2222222
+nmap t :tabedit %<CR>
+nnoremap <S-t>     :tabnext<CR>
+nnoremap <C-t>    :tabprevious<CR>
+"nnoremap <C-S-t>     :tabprevious<CR>
 "Ionic
 let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
 "Line number highlighted
 set incsearch
-"move lines fast
-nnoremap <S-Up> :+5
-nnoremap <S-Down> :-5
 "Map for NerdTree
 map <C-n> :NERDTreeToggle<CR>
 "Indent blank line
@@ -54,7 +64,7 @@ set autoread
 
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
 "Compile and run program
-nnoremap <c-p> :!clear && go %:r && ./%:r<CR>
+nnoremap <c-p> :!clear && go %:r; ./%:r<CR>
 nnoremap <c-o> :!clear && javac %:r.java && java %:r<CR>
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -67,8 +77,9 @@ highlight htmlArg cterm=italic
 "Line highlighitng
 set cursorline
 highlight CursorLine  cterm=bold
-
+"Cursor exclusive
 set number                  " show line numbers
+set ruler
 " set relativenumber          " show relative line numbers
 
 set wrap                    " turn on line wrapping
@@ -112,3 +123,19 @@ nnoremap <S-h> :vertical resize -5<cr>
 nnoremap <S-j> :resize +5<cr>
 nnoremap <S-k> :resize -5<cr>
 nnoremap <S-l> :vertical resize +5<cr>
+
+"inoremap <silent> <Esc> <Esc>`^
+"set selection=exclusive
+
+"Git
+set diffopt+=vertical
+" airline options
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
+let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
+let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline_theme='light'
+set laststatus=2

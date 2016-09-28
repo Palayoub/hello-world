@@ -1,6 +1,28 @@
 colorscheme mc-like
 set number
 nnoremap w :view<cr>
+
+" Open file in the background using its default program
+nnoremap i :!open -g %f<cr>
+" Start shell in current directory
+nnoremap s :shell<cr>
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Don't highlight search results automatically
+set nohlsearch
+" Use increment searching (search while typing)
+set incsearch
+
+" Ignore case in search patterns unless it contains at least one uppercase
+" letter
+
+set ignorecase
+set smartcase
+
 "Resizing panes
 nnoremap <c-j> <c-w>>
 nnoremap <c-k> <c-w>-
+"move lines fast
+nnoremap ; :+5<CR>
+nnoremap , :-5<CR>
