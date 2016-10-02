@@ -23,6 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-surround'
 "Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
@@ -40,7 +41,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-set path+=/usr/local/Cellar/gcc5/5.4.0/include/c++/5.4.0/**
+"set path+=/usr/local/Cellar/gcc5/5.4.0/include/c++/5.4.0/**
 
 "TRYYYY
 "set clipboard=unnamedplus
@@ -139,3 +140,4 @@ let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in 
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline_theme='light'
 set laststatus=2
+
