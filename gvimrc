@@ -1,3 +1,5 @@
+"Change font
+set guifont=Menlo:h15
 vnoremap <S-M-Right> e
 vnoremap <S-M-Left> b
 let g:indent_guides_auto_colors = 0
