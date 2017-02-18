@@ -1,10 +1,10 @@
 "Change font
-set guifont=Menlo:h15
+set guifont=Monaco\ \for\ \Powerline:h15
 vnoremap <S-M-Right> e
 vnoremap <S-M-Left> b
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
   " Alt + Up/Down for faster vertical cursor movement
 map <A-Down> 4j
 imap <A-Down> <Esc>4ji

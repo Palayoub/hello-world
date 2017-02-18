@@ -1,6 +1,12 @@
 set nocompatible              " be iMproved, required
+set autoread
+if has("gui_macvim")
+	    let macvim_hig_shift_movement = 1
+		:autocmd BufNewFile,BufRead * :cd %:p:h
+		"set guicursor+=i:blinkwait0
+endif
 filetype off                  " required
-colorscheme blue
+colorscheme brogrammer
 "set backspace=2
 set backspace=indent,eol,start
 
@@ -17,7 +23,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/syntastic'
@@ -26,7 +32,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
 Plugin 'Shougo/neocomplete.vim'
-"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,13 +51,16 @@ filetype plugin indent on    " required
 
 "set path+=/usr/local/Cellar/gcc5/5.4.0/include/c++/5.4.0/**
 
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 "TRYYYY
 "set clipboard=unnamedplus
 set clipboard+=unnamed
 "TRY2222222
 nmap t :tabedit %<CR>
-nnoremap <S-t>     :tabnext<CR>
-nnoremap <C-t>    :tabprevious<CR>
+nnoremap <C-f>     :tabnext<CR>
+nnoremap <C-d>    :tabprevious<CR>
+map <C-y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <C-u> g]
 "nnoremap <C-S-t>     :tabprevious<CR>
 "Ionic
 let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
@@ -66,8 +75,9 @@ syntax on                   " switch syntax highlighting on
 set autoread 
 
 set t_Co=256                " Explicitly tell vim that the terminal supports 256 colors"
+set term=screen-256color
 "Compile and run program
-nnoremap <c-p> :!clear && go %:r; ./%:r<CR>
+nnoremap <c-p> :!clear && go %:p:r; ./%:r<CR>
 nnoremap <c-o> :!clear && javac *.java && java %:r<CR>
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
@@ -123,11 +133,15 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 " Window resizing mappings /*{{{*/
 nnoremap <S-h> :vertical resize -5<cr>
-"nnoremap <S-j> :resize +5<cr>
-"nnoremap <S-k> :resize -5<cr>
+"nnoremap <c-Up> :resize +5<cr>
+"nnoremap <c-Down> :resize -5<cr>
+vnoremap <S-j> 5j
+vnoremap <S-k> -5k
 nnoremap <S-j> :+5<CR>
 nnoremap <S-k> :-5<CR>
 nnoremap <S-l> :vertical resize +5<cr>
+nnoremap <C-c> :resize +5<cr>
+nnoremap <C-,> :resize -5<cr>
 "inoremap <silent> <Esc> <Esc>`^
 "set selection=exclusive
 
@@ -166,6 +180,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
+
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
@@ -233,4 +248,65 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+"Syntaxic Disable and enable
+
+
+nnoremap <c-c> :SyntasticCheck<CR>
+nnoremap <c-x> :SyntasticToggleMode<CR>
+
+
+
+
+"Explore
+
+" Toggle Vexplore with Ctrl-E
+function! ToggleVExplorer()
+    if exists("t:expl_buf_num")
+        let expl_win_num = bufwinnr(t:expl_buf_num)
+        if expl_win_num != -1
+            let cur_win_nr = winnr()
+            exec expl_win_num . 'wincmd w'
+            close
+            exec cur_win_nr . 'wincmd w'
+            unlet t:expl_buf_num
+        else
+            unlet t:expl_buf_num
+        endif
+    else
+        exec '1wincmd w'
+        Vexplore
+        let t:expl_buf_num = bufnr("%")
+    endif
+endfunction
+"map <silent> <C-E> :call ToggleVExplorer()<CR>
+map <C-N> :Lexplore %:p:h<CR>
+"map <C-E> :Vexplore<CR>
+" Hit enter in the file browser to open the selected
+" file with :vsplit to the right of browser
+"let g:netrw_brows_split = 4
+"let g:netrow_altv = 1
+
+" Default to tree mode
+"let g:netrw_banner = 0
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = -1
+"map <C-V> :Ex<CR>
+"
+let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 0
+
+"set tags= %:p:h;
+
+"if filereadable("./.vimrc")
+
+"if filereadable("tags")
+	"set tags=%:p:h/tags;
+"endif
+
+"call SomeCheck()
+"endif
 

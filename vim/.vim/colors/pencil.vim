@@ -179,12 +179,6 @@ hi! link Number           Constant
 hi! link Boolean          Constant
 hi! link Float            Constant
 
-
-
-hi CursorLineNR cterm=bold
-
-
-
 call s:h("Identifier",    {"fg": s:dark_blue})
 hi! link Function         Identifier
 
@@ -392,4 +386,3 @@ else
   hi link GitGutterChange             LineNr
   hi link GitGutterChangeDelete       LineNr
 endif
-
