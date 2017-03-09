@@ -7,6 +7,7 @@ if has("gui_macvim")
 endif
 filetype off                  " required
 colorscheme brogrammer
+"colorscheme ayoub
 "set backspace=2
 set backspace=indent,eol,start
 
