@@ -6,8 +6,11 @@ if has("gui_macvim")
 		"set guicursor+=i:blinkwait0
 endif
 filetype off                  " required
-colorscheme brogrammer
+set background=light
+colorscheme Monokai
 "colorscheme ayoub
+"colorscheme blue
+"colorscheme default
 "set backspace=2
 set backspace=indent,eol,start
 
@@ -33,6 +36,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'mxw/vim-jsx'
 "Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
@@ -60,7 +65,7 @@ set clipboard+=unnamed
 nmap t :tabedit %<CR>
 nnoremap <C-f>     :tabnext<CR>
 nnoremap <C-d>    :tabprevious<CR>
-map <C-y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"map <C-y> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <C-u> g]
 "nnoremap <C-S-t>     :tabprevious<CR>
 "Ionic
@@ -136,10 +141,23 @@ vnoremap <S-Tab> <gv
 nnoremap <S-h> :vertical resize -5<cr>
 "nnoremap <c-Up> :resize +5<cr>
 "nnoremap <c-Down> :resize -5<cr>
+"vnoremap <S-j> 5<C-E>
+"vnoremap <S-k> 5<C-Y>
+"nnoremap <S-j> 5<C-E>
+"nnoremap <S-k> 5<C-Y>
 vnoremap <S-j> 5j
 vnoremap <S-k> -5k
-nnoremap <S-j> :+5<CR>
-nnoremap <S-k> :-5<CR>
+nnoremap <S-j> 5j<CR>
+nnoremap <S-k> 5k<CR>
+"vnoremap <S-j> <ScrollWheelUp><ScrollWheelUp><ScrollWheelUp>
+"vnoremap <S-k> <ScrollWheelDown><ScrollWheelDown><ScrollWheelDown>
+"nnoremap <S-k> <ScrollWheelUp><ScrollWheelUp>
+"nnoremap <S-j> <ScrollWheelDown><ScrollWheelDown>
+"nnoremap <S-k> <S-ScrollWheelUp>
+"nnoremap <S-j> <S-ScrollWheelDown>
+
+"nnoremap <S-j> :+5<CR>
+"nnoremap <S-k> :-5<CR>
 nnoremap <S-l> :vertical resize +5<cr>
 nnoremap <C-c> :resize +5<cr>
 nnoremap <C-,> :resize -5<cr>
@@ -310,4 +328,20 @@ let g:netrw_winsize = 0
 
 "call SomeCheck()
 "endif
+
+
+let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+set noshowmatch         " Don't match parentheses/brackets
+set nocursorline        " Don't paint cursor line
+set nocursorcolumn      " Don't paint cursor column
+set lazyredraw          " Wait to redraw
+set scrolljump=8        " Scroll 8 lines at a time at bottom/top
+let html_no_rendering=1 " Don't render italic, bold, links in HTML
+
+
+
+
+
+
+
 

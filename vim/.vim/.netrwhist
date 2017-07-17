@@ -1,6 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/ayoub/terminal/CP/problems'
-let g:netrw_dirhist_2='/Users/ayoub/terminal/CP/problems/codeforces'
-let g:netrw_dirhist_3='/Users/ayoub/terminal/CP/problems/codeforces/A'
-let g:netrw_dirhist_4='/Users/ayoub'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/ayoub/terminal/Angular/my-app/src/app'
+let g:netrw_dirhist_2='/Users/ayoub/terminal/React/my-app/src'
+let g:netrw_dirhist_3='/Users/ayoub/terminal/React/my-app'
+let g:netrw_dirhist_4='/Users/ayoub/terminal/React'
+let g:netrw_dirhist_5='/Users/ayoub/terminal'
+let g:netrw_dirhist_6='/Users/ayoub'
+let g:netrw_dirhist_7='/Users/ayoub/terminal/Angular/my-app/src/app'
+let g:netrw_dirhist_8='/Users/ayoub/terminal/React/my-app'
+let g:netrw_dirhist_9='/Users/ayoub/terminal/React/my-app/src'

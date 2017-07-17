@@ -37,7 +37,7 @@ hi Search       guibg=#ffff7d     guifg=#000000
 hi SpecialKey   guifg=yellowgreen
 hi StatusLine   guibg=#102030     guifg=grey70    gui=none
 hi StatusLineNC guibg=#203040     guifg=grey50    gui=none
-hi Title        guifg=indianred
+"hi Title        guifg=indianred
 hi Visual       gui=none          guifg=white     guibg=#D04040
 hi WarningMsg   guifg=salmon
 hi Directory    guifg=#A6E22E
@@ -57,15 +57,15 @@ endif
 
 " syntax highlighting groups
 hi Comment    guifg=#8090a0   gui=none
-hi Constant   guifg=#ff6070   gui=none
+hi Constant   guifg=#ff6070   gui=none   gui=BOLD
 hi Identifier guifg=#70d080   gui=none
 hi Statement  guifg=#6699D0   gui=none
 hi PreProc    guifg=indianred gui=none
-hi Type       guifg=#8cd0d3   gui=none
+hi Type       guifg=#8cd0d3   gui=none   gui=BOLD
 hi Special    guifg=#ecad2b   gui=none
 hi Delimiter  guifg=#8090a0
-hi Number     guifg=#FFFF80
+hi Number     guifg=#FFFF80   gui=BOLD
 hi Ignore     guifg=grey40    gui=none
-hi Todo       guifg=orangered guibg=#304050 gui=none
+hi Todo       guifg=orangered guibg=#304050 gui=BOLD
 
 "vim: sw=4
