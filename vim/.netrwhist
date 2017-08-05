@@ -1,2 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ayoub/terminal/React'
+let g:netrw_dirhist_2='/Users/ayoub/terminal/React/my-app'
+let g:netrw_dirhist_3='/Users/ayoub/terminal/React/my-app/src'
+let g:netrw_dirhist_4='/Users/ayoub/terminal/React/my-app/src/actions'
+let g:netrw_dirhist_5='/Users/ayoub/terminal/Github/Fisher-Splendor/project/actions'
+let g:netrw_dirhist_6='/Users/ayoub/terminal/Github/Fisher-Splendor/project'
+let g:netrw_dirhist_7='/Users/ayoub/terminal/Github/Fisher-Splendor/project/components'
+let g:netrw_dirhist_8='/Users/ayoub/terminal'

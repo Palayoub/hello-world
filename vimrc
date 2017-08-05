@@ -2,12 +2,13 @@ set nocompatible              " be iMproved, required
 set autoread
 if has("gui_macvim")
 	    let macvim_hig_shift_movement = 1
-		:autocmd BufNewFile,BufRead * :cd %:p:h
+		":autocmd BufNewFile,BufRead * :cd %:p:h
 		"set guicursor+=i:blinkwait0
 endif
 filetype off                  " required
 set background=light
-colorscheme Monokai
+"colorscheme Monokai
+colorscheme srcery
 "colorscheme ayoub
 "colorscheme blue
 "colorscheme default
@@ -38,6 +39,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'alvan/vim-closetag'
+"Plugin 'roosta/srcery'
+"Plugin 'kudabux/vim-srcery-drk'
 "Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
@@ -84,7 +89,7 @@ set t_Co=256                " Explicitly tell vim that the terminal supports 256
 set term=screen-256color
 "Compile and run program
 nnoremap <c-p> :!clear && go %:p:r; ./%:r<CR>
-nnoremap <c-o> :!clear && javac *.java && java %:r<CR>
+"nnoremap <c-o> :!clear && javac *.java && java %:r<CR>
 " make the highlighting of tabs and other non-text less annoying
 highlight SpecialKey ctermbg=none ctermfg=8
 highlight NonText ctermbg=none ctermfg=8
@@ -95,7 +100,7 @@ highlight htmlArg cterm=italic
 
 "Line highlighitng
 set cursorline
-highlight CursorLine  cterm=bold
+"highlight CursorLine  cterm=bold
 "Cursor exclusive
 set number                  " show line numbers
 set ruler
@@ -106,8 +111,8 @@ set wrapmargin=8            " wrap lines when coming within n characters from si
 set linebreak               " set soft wrapping
 set showbreak=…             " show ellipsis at breaking
 
-set autoindent              " automatically set indent of new line
-set smartindent
+"set autoindent              " automatically set indent of new line
+"set smartindent
 
 " toggle invisible characters
 set list
@@ -115,13 +120,15 @@ set listchars=tab:→\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 
 " Tab control
-set noexpandtab             " insert tabs rather than spaces for <Tab>
+set expandtab             " insert tabs rather than spaces for <Tab>
 set smarttab                " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4               " the visible width of tabs
 set softtabstop=4           " edit as if the tabs are 4 characters wide
 set shiftwidth=4            " number of spaces to use for indent and unindent
 set shiftround              " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
+
+" Cursor highlighting
 " Splits moves
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -164,6 +171,25 @@ nnoremap <C-,> :resize -5<cr>
 "inoremap <silent> <Esc> <Esc>`^
 "set selection=exclusive
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*ts,*php'
+
+map <C-s> :set hlsearch!<cr>
+"map <C-a> :CtrlPClearCache<cr>
+
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](node_modules|target|dist)|(\.(swp|ico|hg|git|svn))$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_prompt_mappings = {
+\ 'PrtClearCache()':      ['<Tab>'],
+\ }
 "Git
 set diffopt+=vertical
 " airline options
@@ -299,6 +325,8 @@ function! ToggleVExplorer()
 endfunction
 "map <silent> <C-E> :call ToggleVExplorer()<CR>
 map <C-N> :Lexplore %:p:h<CR>
+
+"map <C-s> :set hlsearch!<cr>
 "map <C-E> :Vexplore<CR>
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of browser
