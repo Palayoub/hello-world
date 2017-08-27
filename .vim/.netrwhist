@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/ayoub'
+let g:netrw_dirhist_2='/home/ayoub/jail'
+let g:netrw_dirhist_3='/home/ayoub/jail/lib64'
+let g:netrw_dirhist_4='/home/ayoub/jail'
+let g:netrw_dirhist_5='/home/ayoub/jail/bin'
+let g:netrw_dirhist_6='/home/ayoub/jail'
+let g:netrw_dirhist_7='/home/ayoub'
